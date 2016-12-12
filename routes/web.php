@@ -11,6 +11,51 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+#directs to homepage
+Route::get('/', 'EntryController@index')->name('entry.index');
+
+#creates new sleep entry
+Route::get('/create', 'EntryController@create') -> name('entry.create');
+
+#process form to add sleep data
+Route::post('/store', 'EntryController@store') -> name('entry.store');
+
+#show user sleep history
+Route::get('/history', 'EntryController@show') -> name('entry.show');
+
+#form to edit user sleep entry
+Route::get('/edit', 'EntryController@edit') -> name('entry.edit');
+
+#process form to update user sleep entry
+Route::post('/edit', 'EntryController@update') -> name('entry.update');
+
+#form to delete user sleep data entry
+Route::get('/delete', 'EntryController@delete') -> name('entry.delete');
+
+#Test database connections
+Route::get('/debug', function() {
+
+    echo '<pre>';
+
+    echo '<h1>Environment</h1>';
+    echo App::environment().'</h1>';
+
+    echo '<h1>Debugging?</h1>';
+    if(config('app.debug')) echo "Yes"; else echo "No";
+
+    echo '<h1>Database Config</h1>';
+
+    echo '<h1>Test Database Connection</h1>';
+    try {
+        $results = DB::select('SHOW DATABASES;');
+        echo '<strong style="background-color:green; padding:5px;">Connection confirmed</strong>';
+        echo "<br><br>Your Databases:<br><br>";
+        print_r($results);
+    }
+    catch (Exception $e) {
+        echo '<strong style="background-color:crimson; padding:5px;">Caught exception: ', $e->getMessage(), "</strong>\n";
+    }
+
+    echo '</pre>';
+
 });
