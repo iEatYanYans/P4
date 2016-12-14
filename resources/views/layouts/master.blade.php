@@ -11,14 +11,17 @@
     <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-<link href="css/cover.css" rel="stylesheet" type="text/css">
+<link href="/css/cover.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/js/tracker.js"></script>
 
 
   </head>
   <body>
 
       <div class="site-wrapper">
-
+        @if(Session::get('flash_message') != null))
+        <div class='flash_message'>{{ Session::get('flash_message') }}</div>
+        @endif
         <div class="site-wrapper-inner">
 
           <div class="cover-container">
@@ -28,7 +31,7 @@
                 <h3 class="masthead-brand"><ahref='#'></a>Sleep Tracker</h3>
                 <nav>
                   <ul class="nav masthead-nav">
-                    <li class="active"><a href="#">Login</a></li>
+                    <li><a href="#">Login</a></li>  //if active class='active'
                     <li><a href='#'>Sign Up</a></li>
                     <li><a href="#">Features</a></li>
                     <li><a href="#">Contact</a></li>
@@ -41,11 +44,11 @@
               @yield('content')
             </section>
 
-            <div class="mastfoot">
+          <!--  <div class="mastfoot">
               <div class="inner">
                 <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
               </div>
-            </div>
+            </div>  -->
 
           </div>
 
@@ -59,6 +62,7 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"</script>
+      <!--<script type="text/javascript" src="/js/tracker.js"></script>-->
       <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
       <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 

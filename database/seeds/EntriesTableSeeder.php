@@ -4,11 +4,7 @@ use Illuminate\Database\Seeder;
 
 class EntriesTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
     public function run()
     {
         $faker = Faker\Factory::create();
@@ -19,6 +15,7 @@ class EntriesTableSeeder extends Seeder
           'time_slept' => $faker->dateTimeThisMonth($max='now'), //Look into adding a 'hours_slept' row
           'time_woken' => $faker->dateTimeThisMonth($max='now'),
           'room_temperature' => '80',
+          'temperature_constant' => 'Fahrenheit',
           'notes' => 'I dreamt about horses',
         ]);
 
@@ -28,6 +25,7 @@ class EntriesTableSeeder extends Seeder
           'time_slept' => $faker->dateTimeThisMonth($max='now'), //Look into adding a 'hours_slept' row
           'time_woken' => $faker->dateTimeThisMonth($max='now'),
           'room_temperature' => '80',
+          'temperature_constant' => 'Fahrenheit',
           'notes' => 'I dreamt about sheeps',
         ]);
 
@@ -37,6 +35,7 @@ class EntriesTableSeeder extends Seeder
           'time_slept' => $faker->dateTimeThisMonth($max='now'), //Look into adding a 'hours_slept' row
           'time_woken' => $faker->dateTimeThisMonth($max='now'),
           'room_temperature' => '80',
+          'temperature_constant' => 'Fahrenheit',
           'notes' => 'I dreamt about bunnies',
         ]);
     }

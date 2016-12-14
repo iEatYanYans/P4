@@ -24,13 +24,13 @@ Route::post('/store', 'EntryController@store') -> name('entry.store');
 Route::get('/history', 'EntryController@show') -> name('entry.show');
 
 #form to edit user sleep entry
-Route::get('/edit', 'EntryController@edit') -> name('entry.edit');
+Route::get('/edit/{id}', 'EntryController@edit') -> name('entry.edit');
 
 #process form to update user sleep entry
-Route::post('/edit', 'EntryController@update') -> name('entry.update');
+Route::post('/edit/{id}', 'EntryController@update') -> name('entry.update');
 
 #form to delete user sleep data entry
-Route::get('/delete', 'EntryController@delete') -> name('entry.delete');
+Route::get('/delete/{id}', 'EntryController@delete') -> name('entry.delete');
 
 #Test database connections
 Route::get('/debug', function() {
