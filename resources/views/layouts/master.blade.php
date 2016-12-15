@@ -14,6 +14,8 @@
 <link href="/css/cover.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="/js/tracker.js"></script>
 
+@yield('title')
+
 
   </head>
   <body>
@@ -28,12 +30,18 @@
 
             <div class="masthead clearfix">
               <div class="inner">
-                <h3 class="masthead-brand"><ahref='#'></a>Sleep Tracker</h3>
+                <h3 class="masthead-brand"><a href='/'>Sleep Tracker</a></h3>
                 <nav>
                   <ul class="nav masthead-nav">
-                    <li><a href="#">Login</a></li>  //if active class='active'
+                    <li><a href="#">Login</a></li>  #if active class='active'
                     <li><a href='#'>Sign Up</a></li>
-                    <li><a href="#">Features</a></li>
+                    <li><button type='button' class='btn btn-secondary dropdown-toggle' id='dropdownMenuButton' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Features </button>
+                      <div class= 'dropdown-menu' aria-labelledby='dropdownMenuButton'>
+                        <a class= 'dropdown-item' href='/create'>New Entry</a><br>
+                        <a class= 'dropdown-item' href='/history'>Entries</a>
+                      </div>
+                      </li>
                     <li><a href="#">Contact</a></li>
                   </ul>
                 </nav>

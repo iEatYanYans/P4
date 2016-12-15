@@ -13,13 +13,19 @@ class EntryController extends Controller
 
     public function index()
     {
+
         return view('tracker.welcome');
     }
 
 
     public function create()
     {
-        return view('tracker.create');
+      $tags_for_checkbox= Tag::getTagsForCheckboxes();
+      $tags_for_entry = [];
+
+      return view('tracker.create')->with([
+        'tags_for_checkbox' => $tags_for_checkbox,
+      ]);
     }
 
 
@@ -50,6 +56,12 @@ class EntryController extends Controller
         }
 
         $entry->save();
+
+        $tags = ($request->tags) ?: [];
+
+        $entry -> tags()->sync($tags);
+        $entry -> save();
+
 
         Session::flash('flash_message','Your entry was added');
 
@@ -117,7 +129,7 @@ class EntryController extends Controller
         $entry -> notes = $request -> notes;
         $entry -> save();
 
-        $tags[] = ($request->tags) ?: []; //if tags is not empty, set it to the new tags, else blank array
+        $tags = ($request->tags) ?: []; //if tags is not empty, set it to the new tags, else blank array
 
         $entry -> tags()->sync($tags);
         $entry -> save();
@@ -141,6 +153,10 @@ class EntryController extends Controller
           Session::flash('flash_message','Entry not found');
           return redirect('/history');
         }
+    }
+
+    public function graph(){
+      return view('tracker.graph');
     }
 }
 ?>

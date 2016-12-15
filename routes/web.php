@@ -23,6 +23,9 @@ Route::post('/store', 'EntryController@store') -> name('entry.store');
 #show user sleep history
 Route::get('/history', 'EntryController@show') -> name('entry.show');
 
+#shows user graphs
+Route::get('/graph', 'EntryController@graph') -> name('entry.graph');
+
 #form to edit user sleep entry
 Route::get('/edit/{id}', 'EntryController@edit') -> name('entry.edit');
 
