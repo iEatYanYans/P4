@@ -38,7 +38,6 @@ class EntryController extends Controller
 
         $time_slept = $request->input('time_slept'); // returns 2016-12-12T21:09
         $time_woken = $request->input('time_woken');
-        //$time_elapsed = $time_woken -$time_slept
         $time_slept2= new DateTime($time_slept);
         $time_woken2= new DateTime($time_woken);
 
@@ -55,6 +54,13 @@ class EntryController extends Controller
           //do nothing
         }
 
+        //store hours slept in database
+        $time_interval = $time_slept2->diff($time_woken2);
+        $hours_total = ($time_interval->format('%R%a') * 24) + ($time_interval->format('%H')) ;
+        $mins_slept = $time_interval->format('%I');
+        $total_slept = $hours_total + ($mins_slept /60);
+        $entry->hours_slept = $total_slept;
+
         $entry->save();
 
         $tags = ($request->tags) ?: [];
@@ -66,13 +72,6 @@ class EntryController extends Controller
         Session::flash('flash_message','Your entry was added');
 
         return redirect('/history');
-
-        //store hours slept in database
-        $time_interval = $time_slept2->diff($time_woken2);
-        $hours_total = ($time_interval->format('%R%a') * 24) + ($time_interval->format('%H')) ;
-        $mins_slept = $time_interval->format('%I');
-        //echo $time_interval->format('You slept %R%a days and %H:%I:%S hours.'); //FIND A WAY TO CONVERT DAYS TO HOURS ONLY
-        //echo 'hours slept ' .$hours_total. ':' .$mins_slept;
     }
 
 
@@ -122,11 +121,35 @@ class EntryController extends Controller
           'time_woken' => 'required',
         ]);
 
-        $entry -> time_slept = $request->time_slept;
-        $entry -> time_woken = $request->time_woken;
-        $entry -> room_temperature = $request ->temperature;
+        //$time_slept = $request->input('time_slept'); // returns 2016-12-12T21:09
+        //$time_woken = $request->input('time_woken');
+
+        $time_slept = $request->time_slept; // returns 2016-12-12T21:09
+        $time_woken = $request->time_woken;
+
+        $time_slept2= new DateTime($time_slept);
+        $time_woken2= new DateTime($time_woken);
+
+        $entry -> time_slept = $time_slept;
+        $entry -> time_woken = $time_woken;
+
+        //gets temperature if not null;
+        if($request->temperature !== ''){
+          $entry->room_temperature = $request->temperature;
+        }
+        else{
+          $entry->room_temperature = NULL;
+        }
         $entry -> temperature_constant = $request -> temperature_constant;
         $entry -> notes = $request -> notes;
+
+        $time_interval = $time_slept2->diff($time_woken2);
+        $hours_total = ($time_interval->format('%R%a') * 24) + ($time_interval->format('%H')) ;
+        $mins_slept = $time_interval->format('%I');
+        $total_slept = $hours_total + ($mins_slept /60);
+
+        $entry->hours_slept = $total_slept;
+
         $entry -> save();
 
         $tags = ($request->tags) ?: []; //if tags is not empty, set it to the new tags, else blank array
@@ -156,7 +179,21 @@ class EntryController extends Controller
     }
 
     public function graph(){
-      return view('tracker.graph');
+      $entries = Entry::orderBy('time_woken', 'ASC')->get();
+      $hours_slept = array();
+      $time_woken_data = array();
+
+      foreach($entries as $entry){
+        $time_woken_data[] = substr($entry->time_woken, 0, 10);
+        $hours_slept[] = $entry->hours_slept;
+      }
+
+
+      return view('tracker.graph')->with([
+        'entries' => $entries,
+        'time_woken_data' => $time_woken_data,
+        'hours_slept' => $hours_slept,
+      ]);
     }
 }
 ?>

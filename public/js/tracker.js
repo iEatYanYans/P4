@@ -1,5 +1,7 @@
-function showGraph(){
+function showGraph(time_woken_data, hours_slept){
     $(document).ready(function(){
+
+
       var title = {
         text: 'Hours Slept Per Night '
       };
@@ -9,9 +11,7 @@ function showGraph(){
       };
 
       var xAxis= {
-        categories: [
-          '12/12/16', '12/13/16','12/14/16', '12/15/16',
-        ]};
+        categories: time_woken_data};
 
       var yAxis= {
         title:{
@@ -38,12 +38,8 @@ function showGraph(){
       var series= [
         {
           name:'Yan',
-          data:[5, 4, 6.7, 8]
+          data: hours_slept
         },
-        {
-          name:'Kirk',
-          data: [7, 5.3, 8.9, 10]
-        }
       ];
 
       var json= {};

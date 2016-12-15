@@ -17,7 +17,7 @@ class CreateEntriesTable extends Migration
           $table->integer('room_temperature') ->nullable();
           $table->string('temperature_constant')->nullable();
           $table->string('notes')->nullable();
-          //$table->integer('hours_slept');
+          $table->float('hours_slept');
 
         });
     }

@@ -9,4 +9,6 @@ class Entry extends Model
     public function tags(){
       return $this->belongsToMany('App\Tag')->withTimestamps();
     }
+
+    
 }

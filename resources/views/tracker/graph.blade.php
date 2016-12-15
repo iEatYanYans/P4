@@ -10,6 +10,11 @@
 @section('content')
 
 <div id='graph-container'></div>
-  <script>showGraph()</script>
 
+  <script>
+  var time_woken_data = <?php echo json_encode($time_woken_data);?>;
+  var hours_slept= <?php echo json_encode($hours_slept);?>;
+
+  showGraph(time_woken_data, hours_slept)
+  </script>
 @stop
