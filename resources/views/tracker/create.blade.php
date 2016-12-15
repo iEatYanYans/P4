@@ -49,7 +49,7 @@
             @endforeach
           </ul>
         @endif
-        <span> <input type='radio' name='temperature_constant' value='Fahrenheit' checked>Fahreheit &nbsp
+        <span> <input type='radio' name='temperature_constant' value='Fahrenheit' checked>Fahreheit 
         <input type='radio' name='temperature_constant' value='Celsius'> Celsius</span><br>
         <textarea name='notes' id='note' rows='5' cols='50' class='form-text'></textarea><br>
         @foreach($tags_for_checkbox as $tag_id => $tag_name)

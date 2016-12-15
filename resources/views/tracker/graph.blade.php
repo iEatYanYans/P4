@@ -8,7 +8,6 @@
 @stop
 
 @section('content')
-<h1> HELLO </h1>
 
 <div id='graph-container'></div>
   <script language='javascript'>
@@ -37,9 +36,9 @@
             }]
           };
 
-          var tooltip = {
-              valueSuffix: ''
-          };
+	        var tooltip = {
+            valueSuffix: ''
+          }
 
           var legend= {
             layout: 'vertical',
@@ -72,5 +71,4 @@
         });
   </script>
 
-  dd(json);
 @stop
