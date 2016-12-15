@@ -40,7 +40,7 @@
                       Features </button>
                       <div class= 'dropdown-menu' aria-labelledby='dropdownMenuButton'>
                         <a class= 'dropdown-item' href='/create'>New Entry</a><br>
-                        <a class= 'dropdown-item' href='/history'>Entries</a>
+                        <a class= 'dropdown-item' href='/history'>Entries</a><br>
                         <a class= 'dropdown-item' href='/graph'>Graph</a>
                       </div>
                       </li>

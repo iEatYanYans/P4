@@ -10,6 +10,6 @@
 @section('content')
 
 <div id='graph-container'></div>
-  <script src= '/js/tracker.js'></script>
+  <script>showGraph()</script>
 
 @stop
