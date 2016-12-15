@@ -34,8 +34,8 @@
                 <h3 class="masthead-brand"><a href='/'>Sleep Tracker</a></h3>
                 <nav>
                   <ul class="nav masthead-nav">
-                    <li><a href="#">Login</a></li>  #if active class='active'
-                    <li><a href='#'>Sign Up</a></li>
+                    <li><a href="/login">Login</a></li> <!--#if active class='active'-->
+                    <li><a href='/register'>Sign Up</a></li>
                     <li><button type='button' class='btn btn-secondary dropdown-toggle' id='dropdownMenuButton' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Features </button>
                       <div class= 'dropdown-menu' aria-labelledby='dropdownMenuButton'>
@@ -44,7 +44,7 @@
                         <a class= 'dropdown-item' href='/graph'>Graph</a>
                       </div>
                       </li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="/logout">Logout</a></li>
                   </ul>
                 </nav>
               </div>

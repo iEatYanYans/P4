@@ -10,5 +10,9 @@ class Entry extends Model
       return $this->belongsToMany('App\Tag')->withTimestamps();
     }
 
-    
+    public function users(){
+      return $this->belongsTo('App\User');
+    }
+
+
 }

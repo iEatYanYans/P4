@@ -11,10 +11,14 @@ use \App\Tag;
 class EntryController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-
+      if($request->user()){
+        return redirect('/history');
+      }
+      else{
         return view('tracker.welcome');
+      }
     }
 
 
@@ -46,6 +50,7 @@ class EntryController extends Controller
         $entry->time_woken= $time_woken2;
         $entry->temperature_constant = $request->temperature_constant;
         $entry->notes = $request->notes;
+        $entry->user_id = $request->user()->id;
 
         if($request->temperature !== ''){
           $entry->room_temperature = $request->temperature;
@@ -75,10 +80,20 @@ class EntryController extends Controller
     }
 
 
-    public function show()
+    public function show(Request $request)
     {
-        $entry = Entry::all();
-        return view('tracker.history')->with('entries', $entry);
+      $user = $request->user();
+
+      if($user){
+        $entries = $user->entries()->get();
+      }
+      else{
+        $entries = [];
+      }
+        //$entry = Entry::all();
+        return view('tracker.history')->with([
+          'entries'=> $entries
+        ]);
     }
 
 

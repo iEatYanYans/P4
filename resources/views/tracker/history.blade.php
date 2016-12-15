@@ -1,9 +1,5 @@
 @extends ('layouts.master')
 
-@section('title')
-  Sleep History
-@stop
-
 @section('content')
   <div class='entries'>
     @foreach ($entries as $entry)

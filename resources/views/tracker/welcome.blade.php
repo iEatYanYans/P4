@@ -9,7 +9,7 @@
                 own hands for the rest of your life.
               </p>
               <p class="lead">
-                <a href="#" class="btn btn-lg btn-default">Learn more</a>
+                <a href="/register" class="btn btn-lg btn-default">Get Started</a>
               </p>
             </div>
           </div>

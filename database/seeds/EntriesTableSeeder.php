@@ -17,6 +17,7 @@ class EntriesTableSeeder extends Seeder
           'temperature_constant' => 'Fahrenheit',
           'notes' => 'I dreamt about horses',
           'hours_slept' => '10',
+          'user_id' => 1,
         ]);
 
         DB::table('entries')->insert([
@@ -28,6 +29,7 @@ class EntriesTableSeeder extends Seeder
           'temperature_constant' => 'Fahrenheit',
           'notes' => 'I dreamt about sheeps',
           'hours_slept' => '7.5',
+          'user_id' => 1,
         ]);
 
         DB::table('entries')->insert([
@@ -39,17 +41,19 @@ class EntriesTableSeeder extends Seeder
           'temperature_constant' => 'Fahrenheit',
           'notes' => 'I dreamt about bunnies',
           'hours_slept' => '3',
+          'user_id' => 1,
         ]);
 
         DB::table('entries')->insert([
           'created_at' => Carbon\Carbon::now()->toDateTimeString(),
           'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-          'time_slept' => '2016-12-10 20:00:00', 
+          'time_slept' => '2016-12-10 20:00:00',
           'time_woken' => '2016-12-11 20:00:00',
           'room_temperature' => '80',
           'temperature_constant' => 'Fahrenheit',
           'notes' => 'Hello',
           'hours_slept' => '24',
+          'user_id' => 1,
         ]);
 
         DB::table('entries')->insert([
@@ -61,6 +65,7 @@ class EntriesTableSeeder extends Seeder
           'temperature_constant' => 'Celsius',
           'notes' => 'I feel code',
           'hours_slept' => '9.25',
+          'user_id' => 2,
         ]);
 
         DB::table('entries')->insert([
@@ -72,6 +77,7 @@ class EntriesTableSeeder extends Seeder
           'temperature_constant' => 'Fahrenheit',
           'notes' => 'We\'re out of rum.' ,
           'hours_slept' => '10',
+          'user_id' => 2,
         ]);
 
         DB::table('entries')->insert([
@@ -83,6 +89,7 @@ class EntriesTableSeeder extends Seeder
           'temperature_constant' => 'Fahrenheit',
           'notes' => 'I dreamt about bunnies',
           'hours_slept' => '14',
+          'user_id' => 2,
         ]);
 
         DB::table('entries')->insert([
@@ -94,6 +101,7 @@ class EntriesTableSeeder extends Seeder
           'temperature_constant' => 'Fahrenheit',
           'notes' => 'Waldo is at McDonalds',
           'hours_slept' => '10',
+          'user_id' => 2,
         ]);
     }
 }

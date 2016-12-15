@@ -21,7 +21,7 @@ Route::get('/create', 'EntryController@create') -> name('entry.create');
 Route::post('/store', 'EntryController@store') -> name('entry.store');
 
 #show user sleep history
-Route::get('/history', 'EntryController@show') -> name('entry.show');
+Route::get('/history', 'EntryController@show') -> name('entry.show')->middleware('auth');
 
 #shows user graphs
 Route::get('/graph', 'EntryController@graph') -> name('entry.graph');
@@ -61,4 +61,23 @@ Route::get('/debug', function() {
 
     echo '</pre>';
 
+});
+
+Auth::routes();
+
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::get('/home', 'HomeController@index');
+
+Route::get('/show-login-status', function() {  //sanitize this
+
+    # You may access the authenticated user via the Auth facade
+    $user = Auth::user();
+
+    if($user)
+        dump($user->toArray());
+    else
+        dump('You are not logged in.');
+
+    return;
 });
