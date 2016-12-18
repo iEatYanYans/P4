@@ -2,7 +2,7 @@
 
 @section('content')
 <div class = 'content'>
-  <h1> Record New Entry </h1>
+  <h2> Record New Entry </h2>
     <form method='POST' action='/store' name='entryform' class='form-data'>
         {{ csrf_field() }}
         <br>* Time Slept: <br> <!--MAKE A POP UP CLOCK-->
@@ -49,7 +49,7 @@
             @endforeach
           </ul>
         @endif
-        <span> <input type='radio' name='temperature_constant' value='Fahrenheit' checked>Fahreheit 
+        <span> <input type='radio' name='temperature_constant' value='Fahrenheit' checked>Fahreheit
         <input type='radio' name='temperature_constant' value='Celsius'> Celsius</span><br>
         <textarea name='notes' id='note' rows='5' cols='50' class='form-text'></textarea><br>
         @foreach($tags_for_checkbox as $tag_id => $tag_name)

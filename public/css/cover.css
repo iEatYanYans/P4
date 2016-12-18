@@ -1,3 +1,4 @@
+@import 'https://code.highcharts.com/5/css/highcharts.css';
 /*
  * Globals
  */
@@ -6,8 +7,9 @@
 a,
 a:focus,
 a:hover {
-  /color: #fff;
+  color: #fff;
 }
+
 
 /* Custom default button */
 .btn-default,
@@ -29,10 +31,10 @@ body {
   height: 100%;
   background-color: #333;
 }
+
 body {
-  color: #fff;
+  color: #7b7c7c;
   text-align: center;
-  text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
 
 .content{
@@ -44,11 +46,34 @@ body {
   color: #333;
 }
 
-.btn btn-secondary dropdown-toggle{
-  font-size:16px;
-  font-weight: bold;
-  color: color: rgba(255,255,255,.75);
-  background-color: transparent;
+.dropdown-toggle.open> a, .dropdown-toggle.open a:active, .dropdown-toggle.open> a:hover, .dropdown-toggle.open> a:focus{
+  color: #fff;
+  text-shadow: none; /* Prevent inheritance from `body` */
+  background-color: #333;
+  z-index:10;
+}
+
+.dropdown:hover .dropdown-menu{
+  display:block;
+}
+
+.dropdown-menu a:hover{
+  background-color:inherit;
+}
+
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover{
+  color: #fff;
+  text-shadow: none; /* Prevent inheritance from `body` */
+  background-color: #333;
+  border: 0px solid #333;
+  z-index:1;
+}
+
+#cloudimg{
+  position: relative;
+  width: 45px;
+  height: 30px;
+  top: -5px;
 }
 
 .dropdown-menu{
@@ -56,8 +81,8 @@ body {
   text-shadow: none; /* Prevent inheritance from `body` */
   background-color: #fff;
   border: 1px solid #fff;
-  position:fixed;
-  z-index:10;
+  z-index:90;
+  padding: -15px;
 }
 
 .dropdown-item{
@@ -84,11 +109,51 @@ body {
   margin-left: auto;
 }
 
-div.bgimage{
+div.row{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container{
+  margin-right: auto;
+  margin-left:auto;
+  width:100%;
+}
+
+
+div.bgimg{
   background-image:url('/Sakura Tree.jpg');
   background-repeat: no-repeat;
-
+  image-resolution: from-image;
+  background-size: cover;
+  z-index:900;
 }
+
+.highcharts-background{
+  fill: rgba(255, 255, 255, 0.00001);
+}
+
+.highcharts-plot-background {
+  fill: #333333;
+}
+
+.highcharts-title{
+  color: #ffffff;
+  font-size: 36px;
+  fill: rgb(255, 255, 255);
+}
+tspan{
+  fill:#3e78d6;
+}
+
+.highcharts-axis.highcharts-color-0 text{
+  fill: #ffffff;
+}
+
+.highcharts-legend-item text {
+	fill:#ffffff !important;
+}
+
 
 /* Padding for spacing */
 .inner {
@@ -164,6 +229,10 @@ div.bgimage{
   font-weight: bold;
 }
 
+.panel.panel-default{
+  width:750px;
+}
+
 
 /*
  * Footer
@@ -197,8 +266,19 @@ div.bgimage{
   .masthead,
   .mastfoot,
   .cover-container {
-    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+    width: 90%; /* Must be percentage or pixels for horizontal alignment */
   }
+  div#login-panel{
+    width:90%;
+    margin: 15px;
+    margin-top: -55px;
+  }
+  div#reg-panel{
+    width:90%;
+    margin:15px;
+    margin-top:100px;
+  }
+
 }
 
 @media (min-width: 992px) {
@@ -216,9 +296,10 @@ div.bgimage{
     position:fixed;
     top:0;
     left:0;
-    background-color:black;
+    background-color:white;
     font-weight:bold;
-    color: white;
+    color: black;
+    text-shadow: none;
 }
 
 .entries{
@@ -227,16 +308,52 @@ div.bgimage{
 }
 
 .entry{
-    border-bottom-style: dashed;
     border-color: white;
 }
 
+button.accordion{
+  transition: 0.4s;
+  background-color: #333;
+  border: none;
+  width: 100%;
+}
+
+button.accordion.active, button.accordion:hover, button.accordion:focus{
+  background-color:#333;
+  border: none;
+  outline: none;
+  text-rendering: optimizeLegibility;
+}
+
+div.accordion-panel{
+  padding: 0 18px;
+  display: none;
+  max-height:0;
+  overflow: hidden;
+  transition: 0.6s ease-in-out;
+  opacity:0;
+}
+
+div.accordion-panel.show{
+  opacity:1;
+  max-height: 500px;
+  background-color: white;
+}
+
+.entry-body{
+  color: #ffffff;
+}
+
+.entry:hover #entry-dropdown{
+
+}
+
 #graph-container{
-  width:100%;
-  height:500px;
-  margin-top: 100px;
-  top:50px;
+  width:150%;
+  height:450px;
+  position:relative;
+  margin-top: 120px;
+  left:-200px;
   text-align: center;
   right:90px;
-
 }

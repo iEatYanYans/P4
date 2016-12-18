@@ -37,13 +37,19 @@ class LoginController extends Controller
     }
 
     public function logout(Request $request){
-      $this -> guard() -> logout();
-      $request->session() ->flush();
-      $request-> session() -> regenerate();
+      if($request -> user()){
+        $this -> guard() -> logout();
+        $request->session() ->flush();
+        $request-> session() -> regenerate();
 
-      Session::flash('flash_message', 'You have logged out');
+        Session::flash('flash_message', 'You have logged out');
 
-      return redirect('/');
+        return redirect('/');
+      }
+      else{
+        Session::flash('flash_message', 'You are not logged in');
+        return redirect('/');
+      }
 
     }
 

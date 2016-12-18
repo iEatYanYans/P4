@@ -2,7 +2,7 @@
 
 @section('content')
   <div class='content'>
-    <h1> Update Entry {{$entry->id}}</h1>
+    <h2> Update Entry {{$entry->id}}</h2>
     <form method='POST' action='/edit/{{$entry->id}}' name='entryform' class='form-data'>
         {{ csrf_field() }}
         <input type='hidden' name = 'id' value='{{$entry->id}}'>

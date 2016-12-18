@@ -7,6 +7,7 @@ use \DateTime;
 use \App\Entry;
 use \Session;
 use \App\Tag;
+use \Auth;
 
 class EntryController extends Controller
 {
@@ -14,6 +15,7 @@ class EntryController extends Controller
     public function index(Request $request)
     {
       if($request->user()){
+        //dd($request);
         return redirect('/history');
       }
       else{
@@ -24,12 +26,18 @@ class EntryController extends Controller
 
     public function create()
     {
+      if(Auth::check()){
       $tags_for_checkbox= Tag::getTagsForCheckboxes();
       $tags_for_entry = [];
 
       return view('tracker.create')->with([
         'tags_for_checkbox' => $tags_for_checkbox,
       ]);
+      }
+      else{
+        Session::flash('flash_message', 'Please log in to create an entry');
+        return redirect('/');
+      }
     }
 
 
@@ -89,11 +97,14 @@ class EntryController extends Controller
       }
       else{
         $entries = [];
+        Session::flash('flash_message', 'No Entries Found');
       }
-        //$entry = Entry::all();
-        return view('tracker.history')->with([
-          'entries'=> $entries
-        ]);
+
+      //substr($entry->time_woken, 0, 10);
+
+      return view('tracker.history')->with([
+        'entries'=> $entries
+      ]);
     }
 
 
@@ -136,8 +147,6 @@ class EntryController extends Controller
           'time_woken' => 'required',
         ]);
 
-        //$time_slept = $request->input('time_slept'); // returns 2016-12-12T21:09
-        //$time_woken = $request->input('time_woken');
 
         $time_slept = $request->time_slept; // returns 2016-12-12T21:09
         $time_woken = $request->time_woken;
@@ -193,22 +202,31 @@ class EntryController extends Controller
         }
     }
 
-    public function graph(){
-      $entries = Entry::orderBy('time_woken', 'ASC')->get();
-      $hours_slept = array();
-      $time_woken_data = array();
+    public function graph(Request $request){
 
-      foreach($entries as $entry){
-        $time_woken_data[] = substr($entry->time_woken, 0, 10);
-        $hours_slept[] = $entry->hours_slept;
+      $user = $request->user();
+
+      if($user){
+        //$entries = $user->entries()->get();
+        $entries = Entry::where('user_id', $user->id)->orderBy('time_woken', 'ASC')->get();
+        $hours_slept = array();
+        $time_woken_data = array();
+
+        foreach($entries as $entry){
+          $time_woken_data[] = substr($entry->time_woken, 0, 10);
+          $hours_slept[] = $entry->hours_slept;
+        }
+
+        return view('tracker.graph')->with([
+          'entries' => $entries,
+          'time_woken_data' => $time_woken_data,
+          'hours_slept' => $hours_slept,
+        ]);
       }
-
-
-      return view('tracker.graph')->with([
-        'entries' => $entries,
-        'time_woken_data' => $time_woken_data,
-        'hours_slept' => $hours_slept,
-      ]);
+      else{
+        Session::flash('flash_message','Please log in');
+        return redirect('/login');
+      }
     }
 }
 ?>

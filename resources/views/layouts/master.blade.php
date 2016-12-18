@@ -7,12 +7,11 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Sleep Activity Tracker</title>
 
-    <!-- Bootstrap -->
-    <!-- Latest compiled and minified CSS -->
+    <!-- Bootstrap & external references-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 <link href="/css/cover.css" rel="stylesheet" type="text/css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="/js/tracker.js"></script>
 
 @yield('title')
@@ -31,22 +30,27 @@
 
             <div class="masthead clearfix">
               <div class="inner">
-                <h3 class="masthead-brand"><a href='/'>Sleep Tracker</a></h3>
+                <h3 class="masthead-brand"><a href='/welcome'><img id= 'cloudimg' src='/cloud-icon.png'>  Sleep Tracker</a></h3>
                 <nav>
                   <ul class="nav masthead-nav">
-                    <li><a href="/login">Login</a></li> <!--#if active class='active'-->
-                    <li><a href='/register'>Sign Up</a></li>
-                    <li><button type='button' class='btn btn-secondary dropdown-toggle' id='dropdownMenuButton' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Features </button>
-                      <div class= 'dropdown-menu' aria-labelledby='dropdownMenuButton'>
-                        <a class= 'dropdown-item' href='/create'>New Entry</a><br>
-                        <a class= 'dropdown-item' href='/history'>Entries</a><br>
-                        <a class= 'dropdown-item' href='/graph'>Graph</a>
-                      </div>
-                      </li>
-                    <li><a href="/logout">Logout</a></li>
-                  </ul>
-                </nav>
+                    @if(Auth::check())
+                    <li><a href='/'>Home</a></li>
+                    <li class ='dropdown'>
+                      <a href='#' class='dropdown-toggle' data-toggle='dropdown'>Features <b class='caret'></b></a>
+                      <ul class='dropdown-menu'>
+                        <li class='kopie'>Features</li>
+                        <li><a href='/create'>New Entry</a></li>
+                        <li><a href='/history'>Entries</a></li>
+                      </ul>
+                    </li>
+                      <li><a href='/graph'>Graph</a></li>
+                      <li><a href="/logout">Logout</a></li>
+                      @else
+                      <li><a href="/login">Login</a></li>
+                      <li><a href='/register'>Register</a></li>
+                      @endif
+                    </ul>
+                  </nav>
               </div>
             </div>
 
@@ -71,7 +75,7 @@
       <!-- Bootstrap core JavaScript
       ================================================== -->
       <!-- Placed at the end of the document so the pages load faster -->
-      <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+      <!--<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>-->
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"</script>
       <!--<script type="text/javascript" src="/js/tracker.js"></script>-->
       <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

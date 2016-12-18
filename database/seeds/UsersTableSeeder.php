@@ -15,8 +15,8 @@ class UsersTableSeeder extends Seeder
 
          # Define the users you want to add
          $users = [
-             ['jill@harvard.edu','jill','doe','helloworld', 'Female'], # <-- Required for P4
-             ['jamal@harvard.edu','jamal','doe','helloworld', 'Male'], # <-- Required for P4
+             ['jill@harvard.edu','Jill','Doe','helloworld', 'Female'], # <-- Required for P4
+             ['jamal@harvard.edu','Jamal','Doe','helloworld', 'Male'], # <-- Required for P4
          ];
 
          # Get existing users to prevent duplicates

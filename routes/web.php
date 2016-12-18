@@ -14,8 +14,10 @@
 #directs to homepage
 Route::get('/', 'EntryController@index')->name('entry.index');
 
+Route::get('/welcome', 'HomeController@index')->name('home.index');
+
 #creates new sleep entry
-Route::get('/create', 'EntryController@create') -> name('entry.create');
+Route::get('/create', 'EntryController@create') -> name('entry.create')->middleware('auth');
 
 #process form to add sleep data
 Route::post('/store', 'EntryController@store') -> name('entry.store');
@@ -24,7 +26,7 @@ Route::post('/store', 'EntryController@store') -> name('entry.store');
 Route::get('/history', 'EntryController@show') -> name('entry.show')->middleware('auth');
 
 #shows user graphs
-Route::get('/graph', 'EntryController@graph') -> name('entry.graph');
+Route::get('/graph', 'EntryController@graph') -> name('entry.graph')->middleware('auth');
 
 #form to edit user sleep entry
 Route::get('/edit/{id}', 'EntryController@edit') -> name('entry.edit');
@@ -33,7 +35,7 @@ Route::get('/edit/{id}', 'EntryController@edit') -> name('entry.edit');
 Route::post('/edit/{id}', 'EntryController@update') -> name('entry.update');
 
 #form to delete user sleep data entry
-Route::get('/delete/{id}', 'EntryController@delete') -> name('entry.delete');
+Route::get('/delete/{id}', 'EntryController@delete') -> name('entry.delete')->middleware('auth');
 
 #Test database connections
 Route::get('/debug', function() {

@@ -17,7 +17,7 @@ class CreateEntryTagTable extends Migration
         $table->integer('entry_id')->unsigned();
         $table->integer('tag_id')->unsigned();
         # making foreign key
-        $table->foreign('entry_id')->references('id')->on('entries');
+        $table->foreign('entry_id')->references('id')->on('entries')->onDelete('cascade');
         $table->foreign('tag_id')->references('id')->on('tags');
 
       });
