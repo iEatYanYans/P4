@@ -55,6 +55,7 @@
             </div>
 
             <section>
+              <h1>Contents</h1>
               @yield('content')
             </section>
 
