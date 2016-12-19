@@ -13,7 +13,8 @@ function showGraph(time_woken_data, hours_slept, user_name){
       };
 
       var xAxis= {
-        categories: time_woken_data};
+        categories: time_woken_data
+      };
 
       var yAxis= {
         className: 'highcharts-color-0',
@@ -59,7 +60,7 @@ function showGraph(time_woken_data, hours_slept, user_name){
     })
 }
 
-function accordion(){
+function accordionToggle(x){
   $(document).ready(function(){
     var acc = document.getElementsByClassName("accordion");
     var i;
@@ -68,20 +69,23 @@ function accordion(){
       acc[i].onclick = function(){
           this.classList.toggle("active");
           this.nextElementSibling.classList.toggle("show");
+      };
+    };
+  })
+}
+
+function confirmDel(x){
+
+      var confirmation = confirm("WARNING: All entries will be deleted");
+
+      if (confirmation == true){
+        window.location = '/delete/all';
       }
-    }
-  }
+      else{
+        alert("Entries not deleted");
+      };
 }
 
 function entryError(){
   alert("NO ENTRIES FOUND");
-}
-
-function accordionToggle(){
-  $(document).ready(function($){
-    $('.entries').find('.accordion-toggle').click(function(){
-      $(this).next().slideToggle('fast');
-      $('.accordion-panel').not($(this).next()).slideUp('fast');
-    });
-  });
 }

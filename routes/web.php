@@ -34,6 +34,9 @@ Route::get('/edit/{id}', 'EntryController@edit') -> name('entry.edit');
 #process form to update user sleep entry
 Route::post('/edit/{id}', 'EntryController@update') -> name('entry.update');
 
+#Deletes all entries
+Route::get('/delete/all', 'EntryController@deleteAll') ->name('entry.deleteAll')->middleware('auth');
+
 #form to delete user sleep data entry
 Route::get('/delete/{id}', 'EntryController@delete') -> name('entry.delete')->middleware('auth');
 

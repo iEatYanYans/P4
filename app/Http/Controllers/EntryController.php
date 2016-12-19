@@ -100,10 +100,8 @@ class EntryController extends Controller
         Session::flash('flash_message', 'No Entries Found');
       }
 
-      //substr($entry->time_woken, 0, 10);
-
       return view('tracker.history')->with([
-        'entries'=> $entries
+        'entries'=> $entries,
       ]);
     }
 
@@ -199,6 +197,25 @@ class EntryController extends Controller
         else{
           Session::flash('flash_message','Entry not found');
           return redirect('/history');
+        }
+    }
+
+    public function deleteAll(Request $request){
+        $user = $request->user();
+
+
+        if($user){
+          $entries = $user->entries()->get();
+            foreach($entries as $entry){
+              $entry->delete();
+            }
+          //$entries->delete();
+          Session::flash('flash_message', 'Entries deleted');
+          return redirect('/history');
+        }
+        else{
+          $entries = [];
+          Session::flash('flash_message', 'No Entries Found');
         }
     }
 

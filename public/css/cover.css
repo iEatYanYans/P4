@@ -38,12 +38,16 @@ body {
 }
 
 .content{
-    top:50px;
-    margin-top: 90px;
+    top:20px;
+    margin-top: 50px;
 }
 
 .button{
   color: #333;
+}
+
+h2{
+  color:#ffffff;
 }
 
 .dropdown-toggle.open> a, .dropdown-toggle.open a:active, .dropdown-toggle.open> a:hover, .dropdown-toggle.open> a:focus{
@@ -74,6 +78,12 @@ body {
   width: 45px;
   height: 30px;
   top: -5px;
+}
+
+#chartimg{
+  width: 20px;
+  height: 25px;
+  margin-right: 15px;
 }
 
 .dropdown-menu{
@@ -121,12 +131,23 @@ div.row{
 }
 
 
-div.bgimg{
-  background-image:url('/Sakura Tree.jpg');
+.bgimg{
+  width:100%;
+  height:500px;
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 140px;
+  background-image:url('/cloud-outline.png');
   background-repeat: no-repeat;
   image-resolution: from-image;
-  background-size: cover;
+  background-size: 100%;
   z-index:900;
+}
+
+.lead{
+  font-size: 16px;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 .highcharts-background{
@@ -164,6 +185,13 @@ tspan{
 /*
  * Header
  */
+.masthead.clearfix{
+  z-index: 100;
+  background-color: #333333;
+  opacity: 1;
+
+}
+
 .masthead-brand {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -303,8 +331,12 @@ tspan{
 }
 
 .entries{
-    top:50px;
+    top:20px;
     margin-top: 90px;
+    height:100%;
+    overflow: auto;
+    position: relative;
+
 }
 
 .entry{
@@ -338,14 +370,32 @@ div.accordion-panel.show{
   opacity:1;
   max-height: 500px;
   background-color: white;
+  border-radius: 15px;
+}
+
+.accordion-toggle{
+  color: #ffffff;
 }
 
 .entry-body{
   color: #ffffff;
 }
 
-.entry:hover #entry-dropdown{
+.entry{
+  width:auto;
+  margin-left: 150px;
+  margin-right:150px;
 
+}
+
+#deletebtn{
+  border: 2px;
+  border-radius: 10px;
+  border-style: groove;
+  background-color: #333333;
+  border-color: #ffffff;
+  font-size: 24px;
+  color: #ffffff;
 }
 
 #graph-container{

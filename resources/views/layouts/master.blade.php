@@ -43,7 +43,7 @@
                         <li><a href='/history'>Entries</a></li>
                       </ul>
                     </li>
-                      <li><a href='/graph'>Graph</a></li>
+                      <li><a href='/graph'>Graph<img id= 'chartimg' src='/chart-icon.png'</a></li>
                       <li><a href="/logout">Logout</a></li>
                       @else
                       <li><a href="/login">Login</a></li>

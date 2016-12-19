@@ -2,20 +2,11 @@
 
 @section('content')
   <div class='content'>
-    <h2> Update Entry {{$entry->id}}</h2>
+    <h2> Update {{substr($entry->time_woken, 0, 10)}} Entry</h2>
     <form method='POST' action='/edit/{{$entry->id}}' name='entryform' class='form-data'>
         {{ csrf_field() }}
         <input type='hidden' name = 'id' value='{{$entry->id}}'>
-        <br>Time Slept: <br> <!--MAKE A POP UP CLOCK-->
-          <!--<div class="input-group clockpicker">
-              <input type="text" class="form-control" value="09:30">
-              <span class="input-group-addon">
-              <span class="glyphicon glyphicon-time"></span>
-              </span>
-          </div>
-          <script type="text/javascript">
-            $('.clockpicker').clockpicker();
-          </script>-->
+        <br>Time Slept: <br>
         <input type='datetime-local' name='time_slept' class='form-text' value = '<?php echo date("Y-m-d\TH:i:s", strtotime($entry->time_slept)) ;?>' required><br>
           @if($errors -> get('time_slept'))
             <ul>
