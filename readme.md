@@ -1,27 +1,39 @@
-# Laravel PHP Framework
+# Sleep Tracker
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+SleepTracker is a web application written and partially designed by Yan Chen. We believe that the quality of sleep is an essential part of a healthy lifestyle. SleepTracker takes the hard work out of managing your sleep by giving users the ability to easily log in and input their sleep hours. SleepTracker will then calculate the amount of sleep and output a visual graph.  
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+SleepTracker is an accessible and powerful tool made for you in mind.
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+## Github
 
-## Official Documentation
+https://github.com/iEatYanYans/P4
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
 
-## Contributing
+## Screencast Demo
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
 
-## Security Vulnerabilities
+## External Sources
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+Bootstrap: http://getbootstrap.com/
+Bootstrap cover template: https://twitter.com/mdo
+Icons: http://www.material.io
+Cloud icon: http://www.thenounproject.com
+Cloud image: http://www.freeiconspng.com
+Graph API: http://www.highcharts.com/
 
-## License
+Other:
+https://www.tutorialspoint.com/highcharts
+http://www.w3schools.com/
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+
+## CRUD Operations
+
+Create: http://p4.yanfchen.me/create
+Read: http://p4.yanfchen.me/history
+Update: http://p4.yanfchen.me/edit/2
+Delete: http://p4/yanfchen.me/delete/2
+
+
+## SleepTracker Planning Doc
+
+https://docs.google.com/document/d/1iKgfVd3q3X4hFgERQ5bqmtuYasRXjcLRW1aEmCQlsR8/edit?usp=sharing

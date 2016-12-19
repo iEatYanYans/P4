@@ -40,49 +40,9 @@ Route::get('/delete/all', 'EntryController@deleteAll') ->name('entry.deleteAll')
 #form to delete user sleep data entry
 Route::get('/delete/{id}', 'EntryController@delete') -> name('entry.delete')->middleware('auth');
 
-#Test database connections
-Route::get('/debug', function() {
-
-    echo '<pre>';
-
-    echo '<h1>Environment</h1>';
-    echo App::environment().'</h1>';
-
-    echo '<h1>Debugging?</h1>';
-    if(config('app.debug')) echo "Yes"; else echo "No";
-
-    echo '<h1>Database Config</h1>';
-
-    echo '<h1>Test Database Connection</h1>';
-    try {
-        $results = DB::select('SHOW DATABASES;');
-        echo '<strong style="background-color:green; padding:5px;">Connection confirmed</strong>';
-        echo "<br><br>Your Databases:<br><br>";
-        print_r($results);
-    }
-    catch (Exception $e) {
-        echo '<strong style="background-color:crimson; padding:5px;">Caught exception: ', $e->getMessage(), "</strong>\n";
-    }
-
-    echo '</pre>';
-
-});
 
 Auth::routes();
 
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/home', 'HomeController@index');
-
-Route::get('/show-login-status', function() {  //sanitize this
-
-    # You may access the authenticated user via the Auth facade
-    $user = Auth::user();
-
-    if($user)
-        dump($user->toArray());
-    else
-        dump('You are not logged in.');
-
-    return;
-});
