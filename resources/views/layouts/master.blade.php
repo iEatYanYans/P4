@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 <link href="/css/cover.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="/js/tracker.js"></script>
+<script type="text/javascript" src="/js/tracker.js"> </script>
 
 @yield('title')
 
@@ -30,7 +30,7 @@
 
             <div class="masthead clearfix">
               <div class="inner">
-                <h3 class="masthead-brand"><a href='/welcome'><img id= 'cloudimg' src='/cloud-icon.png'>  Sleep Tracker</a></h3>
+                <h3 class="masthead-brand"><a href='/welcome'><img alt="x" id= 'cloudimg' src='/cloud-icon.png'>  Sleep Tracker</a></h3>
                 <nav>
                   <ul class="nav masthead-nav">
                     @if(Auth::check())
@@ -76,10 +76,10 @@
       ================================================== -->
       <!-- Placed at the end of the document so the pages load faster -->
       <!--<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>-->
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"</script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" </script>
       <!--<script type="text/javascript" src="/js/tracker.js"></script>-->
       <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-      <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+      <script src="../../assets/js/ie10-viewport-bug-workaround.js"> </script>
 
       @yield('body')
 
