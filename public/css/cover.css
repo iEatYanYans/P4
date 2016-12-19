@@ -186,7 +186,7 @@ tspan{
  * Header
  */
 .masthead.clearfix{
-  z-index: 100;
+  z-index: 101;
   background-color: #333333;
   opacity: 1;
 
@@ -328,6 +328,8 @@ tspan{
     font-weight:bold;
     color: black;
     text-shadow: none;
+    z-index: 150;
+    opacity: 1;
 }
 
 .entries{
