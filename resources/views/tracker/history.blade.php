@@ -9,8 +9,8 @@
     @foreach ($entries as $entry)
       <div class = "entry">
           <button class= 'accordion'> <span><h3 class= 'accordion-toggle'><b class='caret'></b> {{substr($entry->time_woken, 0, 10)}}
-            <a href= '/edit/{{$entry->id}}'><img src='/edit-icon.png' width='25px' height= '25px'></a>
-            <a href= '/delete/{{$entry->id}}'><img src='/delete-icon.png' width='25px' height='25px'></a></h3></button></span>
+            <a href= '/edit/{{$entry->id}}'><img alt='edit' src='/edit-icon.png' width='25px' height= '25px'></img></a>
+            <a href= '/delete/{{$entry->id}}'><img alt='delete' src='/delete-icon.png' width='25px' height='25px'></img></a></h3></button></span>
           <div class= 'accordion-panel'>
             <br><p> <b>Slept at:</b>   {{$entry -> time_slept}}<br>
             <b>Woke up:</b>   {{$entry->time_woken}}<br>

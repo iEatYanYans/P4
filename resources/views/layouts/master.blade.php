@@ -30,7 +30,7 @@
 
             <div class="masthead clearfix">
               <div class="inner">
-                <h3 class="masthead-brand"><a href='/welcome'><img alt="x" id= 'cloudimg' src='/cloud-icon.png'>  Sleep Tracker</a></h3>
+                <h3 class="masthead-brand"><a href='/welcome'><img alt="cloud" id= 'cloudimg' src='/cloud-icon.png'>  Sleep Tracker</a></h3>
                 <nav>
                   <ul class="nav masthead-nav">
                     @if(Auth::check())
@@ -43,7 +43,7 @@
                         <li><a href='/history'>Entries</a></li>
                       </ul>
                     </li>
-                      <li><a href='/graph'>Graph<img id= 'chartimg' src='/chart-icon.png'</a></li>
+                      <li><a href='/graph'>Graph<img id= 'chartimg' alt='chart' src='/chart-icon.png'></a></li>
                       <li><a href="/logout">Logout</a></li>
                       @else
                       <li><a href="/login">Login</a></li>
